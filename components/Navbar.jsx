@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <div className="h-[80px] px-[50px] bg-rose-600 flex justify-between items-center sticky top-0 z-50">
+        <div className="h-[80px] px-[50px] w-full bg-rose-600 flex justify-between items-center sticky top-0 z-50">
             <div className="flex text-white">
                 <Image className=" rounded-full" src="/img/call.png" width="32" height="32" alt="" />
                 <div>
@@ -11,7 +11,7 @@ const Navbar = () => {
                     <h3>+880 1775 049464</h3>
                 </div>
             </div>
-            <div className="">
+            <div className="hidden lg:block">
                 <ul className="flex text-white">
                     <li className="px-2">
                         <Link href="/">

@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const Orders = () => {
     return (
-        <div className="container mx-auto h-screen">
+        <div className="container mx-auto h-full lg:h-screen">
             <h2 className=" text-3xl font-bold text-center py-10">My Orders</h2>
-            <div className="flex pt-10">
-                <div className="flex-[3]">
-                    <div>
+            <div className="flex pt-10 flex-col lg:flex-row ">
+                <div className="w-11/12 lg:w-[75%] mx-auto">
+                    <div className=" overflow-x-auto">
                         <table className="w-full table-auto">
                             <tr className="">
                                 <th className=" text-left pb-5">Order ID</th>
@@ -22,7 +22,7 @@ const Orders = () => {
                             </tr>
                         </table>
                     </div>
-                    <div className="flex pt-20">
+                    <div className="flex flex-col lg:flex-row pt-20">
                         <div className="flex flex-col items-center rounded-xl bg-teal-100 px-20 py-10 m-3">
                             <Image src="/img/paid.png" width={30} height={30} alt="" />
                             <span>Payment</span>
@@ -30,7 +30,7 @@ const Orders = () => {
                                 <Image src="/img/checked.png" width={20} height={20} alt="" />
                             </div>
                         </div>
-                        <div className="flex animate-bounce flex-col items-center rounded-xl bg-gray-100 px-20 py-10 m-3">
+                        <div className="flex animate-pulse lg:animate-bounce flex-col items-center rounded-xl bg-gray-300 px-20 py-10 m-3">
                             <Image src="/img/bake.png" width={30} height={30} alt="" />
                             <span>Preparing</span>
                             <div className="hidden">
@@ -53,8 +53,8 @@ const Orders = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex-[1] bg-gray-800 text-white mx-auto h-72 rounded-2xl">
-                    <div className=" w-3/5 mx-auto">
+                <div className="w-5/6 my-10 lg:w-[25%] bg-gray-800 text-white mx-auto h-72 rounded-2xl">
+                    <div className="w-5/6 lg:w-3/5 mx-auto">
                         <h2 className="text-center text-2xl font-bold pt-5 pb-2">Cart Total</h2>
                         <hr className=" w-40 mx-auto pb-5" />
                         <div>
@@ -66,7 +66,7 @@ const Orders = () => {
                         <div>
                             <h4 className="text-xl pb-2">Total: $200.00</h4>
                         </div>
-                        <button disabled className=" px-24 py-3 my-5 bg-teal-500 rounded ">PAID</button>
+                        <button disabled className="px-7 lg:px-24 py-3 my-5 bg-teal-500 rounded ">PAID</button>
                     </div>
                 </div>
             </div>
