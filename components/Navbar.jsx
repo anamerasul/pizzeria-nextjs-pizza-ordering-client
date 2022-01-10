@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+
+    const quantity = useSelector(state => state.cart.quantity);
+
+
     return (
         <div className="h-[80px] px-[50px] w-full bg-rose-600 flex justify-between items-center sticky top-0 z-50">
             <div className="flex text-white">
@@ -41,13 +46,15 @@ const Navbar = () => {
 
                 </ul>
             </div>
-            <div className="">
-                <Image className=" rounded-full"
-                    src="/img/cart.png"
-                    width="32"
-                    height="32"
-                    alt="" />
-                <div className=" 
+            <div className="cursor-pointer">
+                <Link href="/cart" passHref>
+                    <div>
+                        <Image className=" rounded-full"
+                            src="/img/cart.png"
+                            width="32"
+                            height="32"
+                            alt="" />
+                        <div className=" 
                 absolute 
                 top-4
                 right-10
@@ -57,8 +64,10 @@ const Navbar = () => {
                 rounded-full
                 flex items-center
                 justify-center">
-                    2
-                </div>
+                            {quantity}
+                        </div>
+                    </div>
+                </Link>
             </div>
         </div>
     );
