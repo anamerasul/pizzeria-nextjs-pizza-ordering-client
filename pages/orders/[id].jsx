@@ -7,7 +7,7 @@ const Orders = ({ singleOrder }) => {
 
     return (
         <div className="container mx-auto h-full lg:h-screen">
-            <h2 className=" text-3xl font-bold text-center py-10">My Orders</h2>
+            <h2 className=" text-3xl font-bold text-center py-10">Track Order</h2>
             <div className="flex pt-10 flex-col lg:flex-row ">
                 <div className="w-11/12 lg:w-[75%] mx-auto">
                     <div className=" overflow-x-auto">
@@ -76,7 +76,7 @@ const Orders = ({ singleOrder }) => {
                         <div>
                             <h4 className="text-xl pb-2">Total: {singleOrder?.total}</h4>
                         </div>
-                        <button disabled className="w-full py-2 my-5 bg-rose-500 rounded ">Pay on delivery</button>
+                        <button disabled className="w-full py-2 my-5 bg-rose-500 rounded ">Payment on delivery</button>
                     </div>
                 </div>
             </div>

@@ -159,13 +159,14 @@ const Cart = () => {
                         <div>
                             <h4 className="text-xl pb-2">Discount: $00.00</h4>
                         </div>
-                        <div className=" pb-16">
+                        <div className=" pb-12">
                             <h4 className="text-xl pb-2">Total: <span>$</span>{cart.total} </h4>
                         </div>
 
                         {
                             open ? (
                                 <div>
+                                    <h2 className="text-center text-sm">Choose a payment method:</h2>
                                     <button onClick={() => setCashOnDelivery(true)} className="w-full py-2 my-2 bg-teal-600 hover:bg-teal-700 transition duration-300 text-white font-semibold rounded ">CASH ON DELIVERY</button>
                                     {
                                         cashOnDelivery ? <div></div> : (
@@ -189,7 +190,7 @@ const Cart = () => {
                                     }
                                 </div>
                             ) : (
-                                <button onClick={() => setOpen(true)} className="w-full py-3 my-5 bg-rose-600 rounded ">CHECKOUT NOW</button>
+                                <button onClick={() => setOpen(true)} className="w-full py-3 my-5 bg-rose-600 rounded-md ">CHECKOUT NOW</button>
                             )
                         }
                     </div>

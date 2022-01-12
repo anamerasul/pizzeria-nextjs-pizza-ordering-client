@@ -23,21 +23,7 @@ const Navbar = () => {
                             <a>Home</a>
                         </Link>
                     </li>
-                    <li className="px-2">
-                        <Link href="/cart">
-                            <a>Cart</a>
-                        </Link>
-                    </li>
-                    <li className="px-2">
-                        <Link href="/orders/45">
-                            <a>Orders</a>
-                        </Link>
-                    </li>
-                    <li className="px-2">
-                        <Link href="/">
-                            <a>Contact</a>
-                        </Link>
-                    </li>
+
 
                 </ul>
             </div>
