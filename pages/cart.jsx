@@ -103,104 +103,110 @@ const Cart = () => {
 
     return (
 
-        <div>
+        <div className=" min-h-screen">
             <h2 className=" text-3xl font-bold text-center py-10">My Cart</h2>
-            <div className="flex flex-col lg:flex-row lg:h-screen  container mx-auto lg:pt-10">
-                <div className="w-11/12 lg:w-[75%] mx-auto pt-10">
-                    <div className=" overflow-x-auto">
-                        <table className="w-11/12 lg:w-full mx-auto table table-auto overscroll-auto ">
-                            <tbody>
-                                <tr className="">
-                                    <th className=" text-left pb-5">Product</th>
-                                    <th className=" text-left pb-5">Name</th>
-                                    <th className=" text-left pb-5">Additionals</th>
-                                    <th className=" text-left pb-5 pr-2">Price</th>
-                                    <th className=" text-left pb-5">Quantity</th>
-                                    <th className=" text-left pb-5">Total</th>
-                                </tr>
-                            </tbody>
-
-                            {
-                                cart.products.map(product => (
-                                    <tbody key={product._id}>
-                                        <tr >
-                                            <td>
-                                                <div className=" relative w-20 h-20">
-                                                    <Image src={product.img} layout="fill" objectFit="cover" alt="" />
-                                                </div>
-                                            </td>
-                                            <td className="text-rose-600 font-bold"> {product.title} </td>
-                                            <td className="text-rose-600">
-                                                {product.additionals.map(additional => (
-                                                    <span className="badge badge-accent mx-1" key={additional._id}> {additional.text} </span>
-                                                ))}
-                                            </td>
-                                            <td className="text-rose-600"> {product.price} </td>
-                                            <td className="text-rose-600"> {product.quantity} </td>
-                                            <td className="font-bold text-rose-600"> {product.price * product.quantity} </td>
+            {
+                cart.products.length > 0 ?
+                    <div className="flex flex-col lg:flex-row lg:h-screen  container mx-auto lg:pt-10">
+                        <div className="w-11/12 lg:w-[75%] mx-auto pt-10">
+                            <div className=" overflow-x-auto">
+                                <table className="w-11/12 lg:w-full mx-auto table table-auto overscroll-auto ">
+                                    <tbody>
+                                        <tr className="">
+                                            <th className=" text-left pb-5">Product</th>
+                                            <th className=" text-left pb-5">Name</th>
+                                            <th className=" text-left pb-5">Additionals</th>
+                                            <th className=" text-left pb-5 pr-2">Price</th>
+                                            <th className=" text-left pb-5">Quantity</th>
+                                            <th className=" text-left pb-5">Total</th>
                                         </tr>
                                     </tbody>
-                                ))
-                            }
 
-
-
-
-                        </table>
-                    </div>
-                </div>
-                <div className="w-11/12 lg:w-[25%] bg-gray-800 text-white mx-auto h-96 rounded-2xl my-10 lg:my-0">
-                    <div className=" w-3/5 mx-auto">
-                        <h2 className="text-center text-2xl font-bold pt-5 pb-2">Cart Total</h2>
-                        <hr className=" w-40 mx-auto pb-5" />
-                        <div>
-                            <h4 className="text-xl pb-2">Subtotal: <span>$</span>{cart.total} </h4>
-                        </div>
-                        <div>
-                            <h4 className="text-xl pb-2">Discount: $00.00</h4>
-                        </div>
-                        <div className=" pb-12">
-                            <h4 className="text-xl pb-2">Total: <span>$</span>{cart.total} </h4>
-                        </div>
-
-                        {
-                            open ? (
-                                <div>
-                                    <h2 className="text-center text-sm">Choose a payment method:</h2>
-                                    <button onClick={() => setCashOnDelivery(true)} className="w-full py-2 my-2 bg-teal-600 hover:bg-teal-700 transition duration-300 text-white font-semibold rounded ">CASH ON DELIVERY</button>
                                     {
-                                        cashOnDelivery ? <div></div> : (
-                                            <div>
-                                                <PayPalScriptProvider
-                                                    className="z-10"
-                                                    options={{
-                                                        "client-id": "test",
-                                                        components: "buttons",
-                                                        currency: "USD",
-                                                        "disable-funding": "credit,card,p24,venmo"
-                                                    }}
-                                                >
-                                                    <ButtonWrapper
-                                                        currency={currency}
-                                                        showSpinner={false}
-                                                    />
-                                                </PayPalScriptProvider>
-                                            </div>
-                                        )
+                                        cart.products.map(product => (
+                                            <tbody key={product._id}>
+                                                <tr >
+                                                    <td>
+                                                        <div className=" relative w-20 h-20">
+                                                            <Image src={product.img} layout="fill" objectFit="cover" alt="" />
+                                                        </div>
+                                                    </td>
+                                                    <td className="text-rose-600 font-bold"> {product.title} </td>
+                                                    <td className="text-rose-600">
+                                                        {product.additionals.map(additional => (
+                                                            <span className="badge badge-accent mx-1" key={additional._id}> {additional.text} </span>
+                                                        ))}
+                                                    </td>
+                                                    <td className="text-rose-600"> {product.price} </td>
+                                                    <td className="text-rose-600"> {product.quantity} </td>
+                                                    <td className="font-bold text-rose-600"> {product.price * product.quantity} </td>
+                                                </tr>
+                                            </tbody>
+                                        ))
                                     }
+
+
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <div className="w-11/12 lg:w-[25%] bg-gray-800 text-white mx-auto h-96 rounded-2xl my-10 lg:my-0">
+                            <div className=" w-3/5 mx-auto">
+                                <h2 className="text-center text-2xl font-bold pt-5 pb-2">Cart Total</h2>
+                                <hr className=" w-40 mx-auto pb-5" />
+                                <div>
+                                    <h4 className="text-xl pb-2">Subtotal: <span>$</span>{cart.total} </h4>
                                 </div>
-                            ) : (
-                                <button onClick={() => setOpen(true)} className="w-full py-3 my-5 bg-rose-600 rounded-md ">CHECKOUT NOW</button>
+                                <div>
+                                    <h4 className="text-xl pb-2">Discount: $00.00</h4>
+                                </div>
+                                <div className=" pb-12">
+                                    <h4 className="text-xl pb-2">Total: <span>$</span>{cart.total} </h4>
+                                </div>
+
+                                {
+                                    open ? (
+                                        <div>
+                                            <h2 className="text-center text-sm">Choose a payment method:</h2>
+                                            <button onClick={() => setCashOnDelivery(true)} className="w-full py-2 my-2 bg-teal-600 hover:bg-teal-700 transition duration-300 text-white font-semibold rounded ">CASH ON DELIVERY</button>
+                                            {
+                                                cashOnDelivery ? <div></div> : (
+                                                    <div>
+                                                        <PayPalScriptProvider
+                                                            className="z-10"
+                                                            options={{
+                                                                "client-id": "test",
+                                                                components: "buttons",
+                                                                currency: "USD",
+                                                                "disable-funding": "credit,card,p24,venmo"
+                                                            }}
+                                                        >
+                                                            <ButtonWrapper
+                                                                currency={currency}
+                                                                showSpinner={false}
+                                                            />
+                                                        </PayPalScriptProvider>
+                                                    </div>
+                                                )
+                                            }
+                                        </div>
+                                    ) : (
+                                        <button onClick={() => setOpen(true)} className="w-full py-3 my-5 bg-rose-600 rounded-md ">CHECKOUT NOW</button>
+                                    )
+                                }
+                            </div>
+                        </div>
+                        {
+                            cashOnDelivery && (
+                                <OrderDetails cashOnDelivery={cashOnDelivery} total={cart.total} createOrder={createOrder} />
                             )
                         }
+                    </div> :
+                    <div className="bg-rose-100 h-40 w-5/6 lg:w-1/2 mx-auto rounded-2xl">
+                        <h2 className="text-xl text-rose-600 text-center font-thin pt-14">Your cart is empty</h2>
                     </div>
-                </div>
-                {
-                    cashOnDelivery && (
-                        <OrderDetails cashOnDelivery={cashOnDelivery} total={cart.total} createOrder={createOrder} />
-                    )
-                }
-            </div>
+            }
         </div>
     );
 };
