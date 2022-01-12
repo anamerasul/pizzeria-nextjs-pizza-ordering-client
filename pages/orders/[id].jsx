@@ -1,6 +1,10 @@
+import axios from "axios";
 import Image from "next/image";
 
-const Orders = () => {
+const Orders = ({ singleOrder }) => {
+
+
+
     return (
         <div className="container mx-auto h-full lg:h-screen">
             <h2 className=" text-3xl font-bold text-center py-10">My Orders</h2>
@@ -8,18 +12,24 @@ const Orders = () => {
                 <div className="w-11/12 lg:w-[75%] mx-auto">
                     <div className=" overflow-x-auto">
                         <table className="w-full table-auto">
-                            <tr className="">
-                                <th className=" text-left pb-5">Order ID</th>
-                                <th className=" text-left pb-5">Customer</th>
-                                <th className=" text-left pb-5">Address</th>
-                                <th className=" text-left pb-5">Total</th>
-                            </tr>
-                            <tr>
-                                <td className="text-rose-600">2568741694255</td>
-                                <td className="text-rose-600">John Doe</td>
-                                <td className="text-rose-600">Uttar Badda, Dhaka, Bangladesh</td>
-                                <td className="font-bold text-rose-600"> $200 </td>
-                            </tr>
+                            <tbody>
+                                <tr className="">
+                                    <th className=" text-left pb-5">Order ID</th>
+                                    <th className=" text-left pb-5">Customer</th>
+                                    <th className=" text-left pb-5">Phone</th>
+                                    <th className=" text-left pb-5">Address</th>
+                                    <th className=" text-left pb-5">Total</th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td className="text-rose-600">{singleOrder?._id}</td>
+                                    <td className="text-rose-600">{singleOrder?.customerName}</td>
+                                    <td className="text-rose-600">{singleOrder?.customerPhone}</td>
+                                    <td className="text-rose-600">{singleOrder?.customerAddress}</td>
+                                    <td className="font-bold text-rose-600"><span>$</span> {singleOrder?.total}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div className="flex flex-col lg:flex-row pt-20">
@@ -58,20 +68,29 @@ const Orders = () => {
                         <h2 className="text-center text-2xl font-bold pt-5 pb-2">Cart Total</h2>
                         <hr className=" w-40 mx-auto pb-5" />
                         <div>
-                            <h4 className="text-xl pb-2">Subtotal: $200.00</h4>
+                            <h4 className="text-xl pb-2">Subtotal: {singleOrder?.total}</h4>
                         </div>
                         <div>
-                            <h4 className="text-xl pb-2">Discount: $00.00</h4>
+                            <h4 className="text-xl pb-2">Discount: $0.00</h4>
                         </div>
                         <div>
-                            <h4 className="text-xl pb-2">Total: $200.00</h4>
+                            <h4 className="text-xl pb-2">Total: {singleOrder?.total}</h4>
                         </div>
-                        <button disabled className="px-7 lg:px-24 py-3 my-5 bg-teal-500 rounded ">PAID</button>
+                        <button disabled className="w-full py-2 my-5 bg-rose-500 rounded ">Pay on delivery</button>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
+
+export const getServerSideProps = async ({ params }) => {
+    const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+    return {
+        props: {
+            singleOrder: res.data,
+        },
+    }
+}
 
 export default Orders;

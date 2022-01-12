@@ -1,13 +1,18 @@
 import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema({
-    customer: {
+    customerName: {
         type: String,
         required: true,
         maxlength: 60,
     },
-    address: {
+    customerAddress: {
         type: String,
+        required: true,
+        maxlength: 500,
+    },
+    customerPhone: {
+        type: Number,
         required: true,
         maxlength: 200,
     },
@@ -19,7 +24,7 @@ const OrderSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    method: {
+    paymentMethod: {
         type: Number,
         required: true,
     },

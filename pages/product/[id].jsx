@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import Swal from 'sweetalert2'
+
 
 const Product = ({ singleProduct }) => {
 
@@ -39,6 +41,13 @@ const Product = ({ singleProduct }) => {
 
     const handleAddToCart = () => {
         dispatch(addProduct({ ...singleProduct, additionals, price, quantity }));
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Item added to the cart',
+            showConfirmButton: false,
+            timer: 1500
+        })
     };
 
 
