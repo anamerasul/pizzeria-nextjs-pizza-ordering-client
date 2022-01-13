@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
             <h3 className="text-2xl font-bold">$ {product.prices[0]} </h3>
             <p className="py-3"> {product.desc} </p>
             <Link href={`/product/${product._id}`} passHref>
-                <button className="px-10 py-3 my-5 rounded-full bg-rose-600 text-white">Order This</button>
+                <button className="px-10 py-3 my-5 rounded-full bg-rose-600 text-white">Order This Pizza</button>
             </Link>
         </div>
     );
