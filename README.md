@@ -2,6 +2,10 @@
 
 ### Project category: Next.js Restaurant Food Ordering Application
 
+## Live link: https://shahriar-pizzeria.vercel.app/
+
+[NOTE]: There might be a server problem, please click once the mentioned header menu (error 500) if internal error shown (Trying to fix it soon)
+
 ## Technology used:
 
 - Next.js
