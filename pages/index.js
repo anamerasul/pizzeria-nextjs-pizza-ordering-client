@@ -19,7 +19,7 @@ export default function Home({ productList }) {
       <Slider />
       <ProductList productList={productList} />
 
-    </div>
+    </div >
   )
 }
 
