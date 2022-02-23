@@ -26,7 +26,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="px-5">
-                        <Link href="/api/orders">
+                        <Link href="https://shahriar-pizzeria.vercel.app/api/orders">
                             <a>Error 500? Click here once</a>
                         </Link>
                     </li>
