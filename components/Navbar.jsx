@@ -25,11 +25,7 @@ const Navbar = () => {
                             <a>Home</a>
                         </Link>
                     </li>
-                    <li className="px-5">
-                        <Link href="https://shahriar-pizzeria.vercel.app/api/orders">
-                            <a>Error 500? Click here once</a>
-                        </Link>
-                    </li>
+
                 </ul>
             </div>
             <div className="cursor-pointer">
